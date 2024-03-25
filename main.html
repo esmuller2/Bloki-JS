@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Dynamiczne coś</title>
+
+        <style>
+            body {
+                padding: 20px;
+                margin: 10px;
+                background-color: #000;
+            }
+
+            input {
+                border: none;
+                outline: 1px solid red;
+                background-color: #000;
+                color: #fff;
+                cursor: pointer;
+                transition: 0.3s ease-in-out;
+                padding: 10px;
+                font-size: 18px;
+                margin: 10px;
+            }
+
+            input:hover {
+                outline: 1px solid rgb(255, 113, 241);
+                color: #b5b5b5;
+            }
+
+            div {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <input type="button" value="Dodaj Blok" id="btn_1" />
+        <input type="button" value="Usuń Blok" id="btn_2" />
+
+        <div id="bloczek"></div>
+
+        <script>
+            const przycisk_dodaj = document.querySelector("#btn_1");
+            const przycisk_usun = document.querySelector("#btn_2");
+            const pole = document.querySelector("#bloczek");
+
+            let counter = 0;
+
+            przycisk_dodaj.addEventListener("click", function () {
+                const el = document.createElement("div");
+
+                el.style.background = `hsl(${Math.random() * 360}, 90%, 70%)`;
+                el.style.color = `hsl(${Math.random() * 360}, 70%, 50%)`;
+                el.innerText = `Blok Numer ${++counter}`;
+                el.style.width = "100px";
+                el.style.height = "100px";
+                el.style.alignItems = "center";
+                el.style.fontSize = "15px";
+                el.style.fontWeight = "900";
+
+                bloczek.appendChild(el);
+            });
+        </script>
+    </body>
+</html>
